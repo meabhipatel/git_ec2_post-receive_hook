@@ -30,7 +30,7 @@ sudo nano post-receive
 #!/bin/sh
 git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/git/your_dir_name.git checkout -f feature/auth-api
 ```
-- Note : use -f if you have to copy code from another branch.
+- Note : use `-f` if you have to copy code from another branch.
   
 ## 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`
 ## 8. Now you have to go into vs code and add git remote then you can push code

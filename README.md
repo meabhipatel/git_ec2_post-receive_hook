@@ -12,11 +12,11 @@ sudo mkdir git
 3. Create a dir with your project name
 ```sh
 cd /git
-sudo mkdir api.alanced.com
+sudo mkdir api.alanced.com.git
 ```
 4. Initialized an empty git repo
 ```sh
-cd api.alanced.com
+cd api.alanced.com.git
 sudo git init --bare
 ```
 5. Go into hooks dir and create a `post-receive` file 
@@ -28,7 +28,9 @@ sudo nano post-receive
 6. Copy and paste below code into `post-receive` file
 ```sh
 #!/bin/sh
-git --work-tree=/home/ubuntu/proptechpro_rei_crm_be --git-dir=/var/git/proptechpro.git checkout -f feature/acquisition-transaction-api
+git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/git/your_dir_name.git checkout -f feature/auth-api
 ```
+- Note : use -f if you have to copy code from another branch.
+  
 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`
 8. 

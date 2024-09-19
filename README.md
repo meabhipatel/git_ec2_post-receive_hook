@@ -14,7 +14,7 @@ sudo mkdir repos
 
 ### 3. Create a dir with your project name
 ```sh
-cd /repos
+cd repos
 sudo mkdir api.alanced.com.git
 sudo chown ubuntu -R api.alanced.com.git
 ```

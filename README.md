@@ -90,3 +90,11 @@ production      ubuntu@52.212.199.123:/var/repositories/theabhipatel.com.git (pu
 git push production
 ```
 
+## Additional Step 
+If you are using docker-compose to run application and want to rebuild autmaticaly  docker compose after pushing code to the instance follow this below step and udpate your `post-receive` file.
+```
+echo "Restarting Docker Compose..."
+cd /home/ubuntu/theabhipatel.com
+docker-compose down
+docker-compose up -d --build
+```

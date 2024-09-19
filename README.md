@@ -16,6 +16,7 @@ cd /git
 sudo mkdir api.alanced.com.git
 sudo chown ubuntu -R api.alanced.com.git
 ```
+- Note: Also make sure to give permission to your dir where you want to copy code in this situation `cd ~ && sudo chown ubuntu -R api.alanced.com`
 
 ### 4. Initialized an empty git repo
 ```sh

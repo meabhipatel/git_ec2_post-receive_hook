@@ -1,38 +1,45 @@
 # Git EC2 Post Receive Hook
-This repo tells us how we can setup git on EC2 instance and push code there directly from vs code using git push command
+This ReadMe tells us how we can setup git on EC2 instance and push code there directly from vs code using git push command
 ---
 
 ## Setps To Connect your EC2 with your local git 
 
 ### 1. Connect with EC2 console.
 
-### 2. Go to /var and create a git dir
+### 2. Create a working project directory where you want to copy the code after push.
+```sh
+cd ~
+sudo mkdir theabhipatel.com
+sudo chown ubuntu -R theabhipatel.com
+```
+- Make sure to give correct permission to your working dir
+
+### 3. Go to /var and create a repositories directory.
 ```sh
 cd /var
-sudo mkdir repos
+sudo mkdir repositories
 ```
 
-### 3. Create a dir with your project name
+### 4. Create a directory with your project name
 ```sh
-cd repos
-sudo mkdir api.alanced.com.git
-sudo chown ubuntu -R api.alanced.com.git
+cd repositories
+sudo mkdir theabhipatel.com.git
+sudo chown ubuntu -R theabhipatel.com.git
 ```
-- Note: Also make sure to give permission to your dir where you want to copy code in this situation `cd ~ && sudo chown ubuntu -R api.alanced.com`
 
-### 4. Initialized an empty git repo
+### 5. Initialized an empty git repo
 ```sh
-cd api.alanced.com.git
+cd theabhipatel.com.git
 sudo git init --bare
 ```
 
-### 5. Go into hooks dir and create a `post-receive` file 
+### 6. Go into hooks dir and create a `post-receive` file 
 ```sh
 cd hooks 
 sudo nano post-receive
 ```
 
-### 6. Copy and paste below code into `post-receive` file
+### 7. Copy and paste below code into `post-receive` file
 ```sh
 #!/bin/sh
 git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/repos/your_dir_name.git checkout -f <branch_name>
@@ -40,12 +47,12 @@ git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/repos/your_dir_name.gi
 - Note : use `<branch_name>` if you have any other branch except master to copy code from.
 
   
-### 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`. Also give execute permission to this file.
+### 8. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`. Also give execute permission to this file.
 ```sh
 sudo chmod +x post-receive
 ```
 
-### 8. Now you have to add ssh key to your ec2 to connect via ssh
+### 9. Now you have to add ssh key to your ec2 to connect via ssh
 - Generate SSH key (if not already generated) on your local machine:
 ```sh
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -60,25 +67,25 @@ cat ~/.ssh/id_rsa.pub
 ssh ubuntu@your-instance-public-ip
 ```
 
-### 9. Now you have to go into vs code and add git remote then you can push code
+### 10. Now you have to go into vs code and add git remote then you can push code
 ```sh
-git remote add <origin-name>  ubuntu@instance_public_ip:/var/repos/api.alanced.com.git
+git remote add <origin-name>  ubuntu@instance_public_ip:/var/repositories/theabhipatel.com.git
 ```
-- EX : git remote add production ubuntu@52.212.199.123:/var/repos/api.alanced.com.git
+- EX : git remote add production ubuntu@52.212.199.123:/var/repositories/theabhipatel.com.git
 
-### 10. Check your  remote added or not 
+### 11. Check your  remote added or not 
 ```sh
 git remote -v
 ```
 - You will find like below Example  
 ```
-origin  https://github.com/meabhipatel/alanced_be.git (fetch)    
-origin  https://github.com/abhipatelwiz91/alanced_be.git (push)      
-production      ubuntu@52.212.199.123:/var/git/proptechpro.git (fetch)           
-production      ubuntu@52.212.199.123:/var/git/proptechpro.git (push)
+origin  https://github.com/meabhipatel/theabhipatel.git (fetch)    
+origin  https://github.com/meabhipatel/theabhipatel.git (push)      
+production      ubuntu@52.212.199.123:/var/repositories/theabhipatel.com.git (fetch)           
+production      ubuntu@52.212.199.123:/var/repositories/theabhipatel.com.git (push)
 ```
 
-### 11. Now you can push your code to the EC2 instance with below command
+### 12. Now you can push your code to the EC2 instance with below command
 ```sh
 git push production
 ```

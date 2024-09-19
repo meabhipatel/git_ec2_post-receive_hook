@@ -48,14 +48,13 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```sh
 cat ~/.ssh/id_rsa.pub
 ```
-- Copy the output and paste it into the ~/.ssh/authorized_keys file on your EC2 instance.
+- Copy the output and paste it into the `~/.ssh/authorized_keys` file on your EC2 instance.
 - SSH into the EC2 instance
 ```sh
 ssh ubuntu@your-instance-public-ip
 ```
-- 
 
-### 8. Now you have to go into vs code and add git remote then you can push code
+### 9. Now you have to go into vs code and add git remote then you can push code
 ```sh
 git remote add <origin-name>  ubuntu@instance_public_ip:/var/git/api.alanced.com.git
 ```
@@ -63,7 +62,7 @@ git remote add <origin-name>  ubuntu@instance_public_ip:/var/git/api.alanced.com
 
 
 production      ubuntu@54.242.192.123:/var/git/proptechpro.git
-### 9. Check you origin added or not 
+### 10. Check you origin added or not 
 ```sh
 git remote -v
 ```
@@ -73,7 +72,7 @@ origin  https://github.com/abhipatelwiz91/alanced_be.git (push)
 production      ubuntu@52.212.199.123:/var/git/proptechpro.git (fetch)      
 production      ubuntu@52.212.199.123:/var/git/proptechpro.git (push)`
 
-### 10. Now you can push you code to the EC2 instance with below command
+### 11. Now you can push you code to the EC2 instance with below command
 ```sh
 git push production
 ```

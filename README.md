@@ -23,21 +23,23 @@ sudo chown ubuntu -R api.alanced.com.git
 cd api.alanced.com.git
 sudo git init --bare
 ```
-## 5. Go into hooks dir and create a `post-receive` file 
+### 5. Go into hooks dir and create a `post-receive` file 
 ```sh
 cd hooks 
 sudo nano post-receive
 ```
 
-## 6. Copy and paste below code into `post-receive` file
+### 6. Copy and paste below code into `post-receive` file
 ```sh
 #!/bin/sh
 git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/git/your_dir_name.git checkout -f feature/auth-api
 ```
 - Note : use `-f` if you have to copy code from another branch.
+- Also give execute permission to this file `sudo chmod +x post-receive`
   
-## 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`
-## 8. Now you have to go into vs code and add git remote then you can push code
+### 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`
+
+### 8. Now you have to go into vs code and add git remote then you can push code
 ```sh
 git remote add <origin-name>  ubuntu@instance_public_ip:/var/git/api.alanced.com.git
 ```
@@ -45,7 +47,7 @@ git remote add <origin-name>  ubuntu@instance_public_ip:/var/git/api.alanced.com
 
 
 production      ubuntu@54.242.192.123:/var/git/proptechpro.git
-## 9. Check you origin added or not 
+### 9. Check you origin added or not 
 ```sh
 git remote -v
 ```
@@ -55,7 +57,7 @@ origin  https://github.com/abhipatelwiz91/alanced_be.git (push)
 production      ubuntu@52.212.199.123:/var/git/proptechpro.git (fetch)      
 production      ubuntu@52.212.199.123:/var/git/proptechpro.git (push)`
 
-## 10. Now you can push you code to the EC2 instance with below command
+### 10. Now you can push you code to the EC2 instance with below command
 ```sh
 git push production
 ```

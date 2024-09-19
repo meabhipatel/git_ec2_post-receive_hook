@@ -91,7 +91,7 @@ git push production
 ```
 
 ## Additional Step 
-If you are using docker-compose to run application and want to rebuild autmaticaly  docker compose after pushing code to the instance follow this below step and udpate your `post-receive` file.
+If you are using docker-compose to run application and want to rebuild autmaticaly  docker compose after pushing code to the instance follow this below step and udpate your `post-receive` file as follows.
 ```
 echo "Restarting Docker Compose..."
 cd /home/ubuntu/theabhipatel.com

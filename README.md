@@ -39,6 +39,22 @@ git --work-tree=/home/ubuntu/your_dir_name --git-dir=/var/git/your_dir_name.git 
   
 ### 7. Save and Exit the editor with `Ctrl + O` , `Enter` and `Ctrl + X`
 
+### 8. Now you have to add ssh key to your ec2 to connect via ssh
+- Generate SSH key (if not already generated) on your local machine:
+```sh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+- Copy the public key to the EC2 instance
+```sh
+cat ~/.ssh/id_rsa.pub
+```
+- Copy the output and paste it into the ~/.ssh/authorized_keys file on your EC2 instance.
+- SSH into the EC2 instance
+```sh
+ssh ubuntu@your-instance-public-ip
+```
+- 
+
 ### 8. Now you have to go into vs code and add git remote then you can push code
 ```sh
 git remote add <origin-name>  ubuntu@instance_public_ip:/var/git/api.alanced.com.git

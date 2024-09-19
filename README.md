@@ -71,10 +71,12 @@ git remote add <origin-name>  ubuntu@instance_public_ip:/var/repos/api.alanced.c
 git remote -v
 ```
 - You will find like below Example  
-`origin  https://github.com/meabhipatel/alanced_be.git (fetch)    
+```
+origin  https://github.com/meabhipatel/alanced_be.git (fetch)    
 origin  https://github.com/abhipatelwiz91/alanced_be.git (push)      
 production      ubuntu@52.212.199.123:/var/git/proptechpro.git (fetch)           
-production      ubuntu@52.212.199.123:/var/git/proptechpro.git (push) `
+production      ubuntu@52.212.199.123:/var/git/proptechpro.git (push)
+```
 
 ### 11. Now you can push your code to the EC2 instance with below command
 ```sh

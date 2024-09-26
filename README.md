@@ -24,7 +24,8 @@ sudo mkdir repositories
 ```sh
 cd repositories
 sudo mkdir theabhipatel.com.git
-sudo chown ubuntu -R theabhipatel.com.git
+sudo chown -R ubuntu:ubuntu theabhipatel.com.git
+chmod -R 775 theabhipatel.com.git
 ```
 
 ### 5. Initialized an empty git repo
